@@ -27,8 +27,8 @@ jobs:
         run: corepack enable
 
       - name: Install dependencies
-        run: yarn add @react-native-google-mlkit/text-recognition
-
+        run: yarn add @react-native-ml-kit/text-recognition
+        
       - name: Build Debug APK
         run: |
           cd packages/app-mobile/android
