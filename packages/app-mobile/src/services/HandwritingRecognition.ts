@@ -1,4 +1,6 @@
 import { GoogleVision } from '@react-native-google-vision/text-recognition';
+import { captureRef } from 'react-native-view-shot';
+import { Platform } from 'react-native';
 
 export interface RecognitionResult {
   text: string;
@@ -50,8 +52,66 @@ export class HandwritingRecognitionService {
   }
 
   private async strokesToImage(strokes: any[]): Promise<string> {
-    // Implementation to convert SVG paths to image
-    // This would use react-native-svg to create an image from paths
-    return 'data:image/png;base64,...'; // Placeholder
+    // For now, return a placeholder
+    // In a real implementation, this would:
+    // 1. Create an SVG element with the strokes
+    // 2. Convert it to a canvas or use react-native-view-shot
+    // 3. Export as base64 image
+    
+    try {
+      // This is a simplified implementation
+      // In practice, you would need to render the strokes to a view and capture it
+      const svgData = this.createSVGFromStrokes(strokes);
+      
+      // For mobile, you might use react-native-svg-to-image or similar
+      // For now, return a placeholder that would work with the recognition service
+      return `data:image/png;base64,${this.convertSVGToBase64(svgData)}`;
+    } catch (error) {
+      console.error('Failed to convert strokes to image:', error);
+      return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==';
+    }
+  }
+
+  private createSVGFromStrokes(strokes: any[]): string {
+    const width = 400;
+    const height = 300;
+    
+    let paths = '';
+    strokes.forEach(stroke => {
+      paths += `<path d="${stroke.path}" stroke="${stroke.color}" stroke-width="${stroke.width}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+    });
+
+    return `
+      <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="white"/>
+        ${paths}
+      </svg>
+    `;
+  }
+
+  private convertSVGToBase64(svgData: string): string {
+    // This is a placeholder implementation
+    // In a real app, you would use proper SVG to image conversion
+    if (Platform.OS === 'web') {
+      return btoa(svgData);
+    }
+    
+    // For React Native, you'd need a native bridge or use a library
+    // that can convert SVG to bitmap
+    return Buffer.from(svgData).toString('base64');
+  }
+
+  async recognizeFromViewRef(viewRef: any): Promise<RecognitionResult[]> {
+    try {
+      const uri = await captureRef(viewRef, {
+        format: 'png',
+        quality: 0.8,
+      });
+      
+      return await this.recognizeText(uri);
+    } catch (error) {
+      console.error('Failed to capture view for recognition:', error);
+      throw error;
+    }
   }
 }
