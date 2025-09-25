@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
-import { ColorPicker } from './ColorPicker';
+import { ColorPicker } from '../../../components/ColorPicker';
 
 interface BrushSettingsProps {
   brushColor: string;
