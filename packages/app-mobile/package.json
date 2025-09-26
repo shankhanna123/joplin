@@ -88,7 +88,7 @@
     "react-native-svg": "15.8.3",
     "@react-native-community/slider": "4.5.5",
     "react-native-view-shot": "3.9.0",
-    "@react-native-google-vision/text-recognition": "1.0.1"
+    
   },
   "devDependencies": {
     "@babel/core": "7.26.0",
