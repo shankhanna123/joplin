@@ -1,4 +1,4 @@
-import { GoogleVision } from '@react-native-google-vision/text-recognition';
+import MLKit from 'react-native-ml-kit';
 import { captureRef } from 'react-native-view-shot';
 import { Platform } from 'react-native';
 
