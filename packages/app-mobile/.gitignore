@@ -78,3 +78,7 @@ utils/fs-driver-android.js
 android/app/build-*
 
 packageInfo.js
+
+# Compiled TypeScript files
+src/**/*.js
+src/**/*.js.map

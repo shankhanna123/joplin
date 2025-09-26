@@ -1,4 +1,3 @@
-import React from 'react';
 import { DrawingMode, BackgroundType } from './InkingTypes';
 
 // Basic test to ensure types and enums are correctly defined

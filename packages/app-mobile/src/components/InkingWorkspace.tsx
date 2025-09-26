@@ -101,11 +101,16 @@ export const InkingWorkspace: React.FC<InkingWorkspaceProps> = ({
     onTextRecognized?.(strokeId, text);
   }, [onTextRecognized]);
 
+  // Available for future use - functions to clear canvas and undo strokes
+  // @ts-ignore: Functions are preserved for future API expansion
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const clearCanvas = useCallback(() => {
     setStrokes([]);
     onStrokesChange?.([]);
   }, [onStrokesChange]);
 
+  // @ts-ignore: Functions are preserved for future API expansion
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const undoLastStroke = useCallback(() => {
     if (strokes.length > 0) {
       const newStrokes = strokes.slice(0, -1);

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, Alert, StyleSheet } from 'react-native';
+import { View, Alert, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { InkingWorkspace } from '../components/InkingWorkspace';
 import { InkStroke } from '../components/InkingTypes';
 
@@ -17,7 +17,7 @@ export const InkingExample: React.FC = () => {
     console.log('Strokes updated:', strokes.length);
   }, []);
 
-  const handleTextRecognized = useCallback((strokeId: string, text: string) => {
+  const handleTextRecognized = useCallback((_strokeId: string, text: string) => {
     Alert.alert(
       'Text Recognized',
       `Recognized text: "${text}"`,
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
  */
 export const NoteEditorWithInking: React.FC = () => {
   const [isInkingMode, setIsInkingMode] = useState(false);
-  const [noteContent, setNoteContent] = useState('');
   const [inkingStrokes, setInkingStrokes] = useState<InkStroke[]>([]);
 
   const toggleInkingMode = () => {
@@ -68,13 +67,22 @@ export const NoteEditorWithInking: React.FC = () => {
     // Save strokes as part of note data
   };
 
-  const handleTextRecognition = (strokeId: string, text: string) => {
+  const handleTextRecognition = (_strokeId: string, text: string) => {
     // Insert recognized text into note content
-    setNoteContent(prev => prev + ' ' + text);
+    console.log('Recognized text:', text);
   };
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity 
+        style={extendedStyles.toggleButton} 
+        onPress={toggleInkingMode}
+      >
+        <Text style={extendedStyles.toggleButtonText}>
+          {isInkingMode ? 'Switch to Text' : 'Switch to Inking'}
+        </Text>
+      </TouchableOpacity>
+      
       {isInkingMode ? (
         <InkingWorkspace
           onStrokesChange={handleInkingStrokesChange}
@@ -82,7 +90,7 @@ export const NoteEditorWithInking: React.FC = () => {
           initialStrokes={inkingStrokes}
         />
       ) : (
-        <View style={styles.textEditor}>
+        <View style={extendedStyles.textEditor}>
           {/* Your regular text editor would go here */}
         </View>
       )}
@@ -95,5 +103,16 @@ const extendedStyles = StyleSheet.create({
   textEditor: {
     flex: 1,
     padding: 16,
+  },
+  toggleButton: {
+    backgroundColor: '#007AFF',
+    padding: 12,
+    margin: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  toggleButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
