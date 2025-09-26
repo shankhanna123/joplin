@@ -2,19 +2,16 @@
 
 This guide explains how to build a Joplin APK for your Android tablet using GitHub Actions.
 
-## Quick Start
+## 🚀 Quick Start - Get Your APK Now!
 
-### Option 1: Automatic Build (Recommended)
-The APK will be built automatically when you push changes to the `main` or `dev` branches.
-
-### Option 2: Manual Build
+### Automatic Build (Recommended) 
 1. Go to the **Actions** tab in your GitHub repository
-2. Click on **"Build APK for Personal Use"** workflow
+2. Click on **"Build APK for Personal Use"** workflow  
 3. Click **"Run workflow"** button
-4. Select the branch (usually `main` or `dev`)
+4. Select the branch (usually `dev` or current branch)
 5. Click **"Run workflow"**
 
-## Download Your APK
+### Download Your APK
 
 1. Wait for the workflow to complete (usually 10-15 minutes)
 2. Go to the **Actions** tab
@@ -45,6 +42,10 @@ If the build fails:
 
 ## Workflows Available
 
-- **`build-apk-for-release.yml`** - Simplified, tablet-focused build
+- **`build-apk-for-release.yml`** - Simplified, tablet-focused build ⭐ **RECOMMENDED**
 - **`simple-android-build.yml`** - Alternative simple build workflow
 - **`build-android.yml`** - Full Android build (includes more comprehensive testing)
+
+---
+
+📚 **For detailed instructions, see [APK_BUILD_GUIDE.md](APK_BUILD_GUIDE.md)**
