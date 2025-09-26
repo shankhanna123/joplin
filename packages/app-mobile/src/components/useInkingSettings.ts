@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Setting from '@joplin/lib/models/Setting';
+import eventManager, { EventName } from '@joplin/lib/eventManager';
 import { BackgroundType } from './InkingTypes';
 
 export interface InkingSettings {
@@ -52,10 +53,10 @@ export const useInkingSettings = () => {
       loadSettings();
     };
 
-    Setting.onChange(handleSettingChange);
+    eventManager.on(EventName.SettingsChange, handleSettingChange);
 
     return () => {
-      Setting.offChange(handleSettingChange);
+      eventManager.off(EventName.SettingsChange, handleSettingChange);
     };
   }, []);
 

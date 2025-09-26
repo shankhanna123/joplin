@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg, { Defs, Pattern, Rect, Line, Circle } from 'react-native-svg';
+import Svg, { Line, Circle } from 'react-native-svg';
 import { BackgroundSettings, BackgroundType } from './InkingTypes';
 
 interface CanvasBackgroundProps {

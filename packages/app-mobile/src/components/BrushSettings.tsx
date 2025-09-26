@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
-import { ColorPicker } from '../../../components/ColorPicker';
+import { ColorPicker } from '../../components/ColorPicker';
 
 interface BrushSettingsProps {
   brushColor: string;
@@ -25,8 +25,6 @@ export const BrushSettings: React.FC<BrushSettingsProps> = ({
         maximumValue={20}
         value={brushWidth}
         onValueChange={onWidthChange}
-        thumbStyle={styles.thumb}
-        trackStyle={styles.track}
       />
       
       <ColorPicker

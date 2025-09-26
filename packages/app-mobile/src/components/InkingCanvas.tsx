@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { View, PanResponder, Dimensions, Text, TouchableOpacity } from 'react-native';
 import Svg, { Path, G, Rect } from 'react-native-svg';
 import { 
@@ -6,8 +6,7 @@ import {
   InkStroke, 
   DrawingMode, 
   Point, 
-  Transform,
-  BoundingBox 
+  Transform
 } from './InkingTypes';
 import { CanvasBackground } from './CanvasBackground';
 import { StrokeUtils } from '../utils/StrokeUtils';
@@ -30,11 +29,9 @@ export const InkingCanvas: React.FC<InkingCanvasProps> = ({
   onTextRecognition
 }) => {
   const [currentPath, setCurrentPath] = useState<string>('');
-  const [currentPoints, setCurrentPoints] = useState<Point[]>([]);
   const [isDrawing, setIsDrawing] = useState(false);
   const [isPanning, setIsPanning] = useState(false);
   const [selectedStrokeId, setSelectedStrokeId] = useState<string | null>(null);
-  const [isResizing, setIsResizing] = useState(false);
   
   const pathRef = useRef<string>('');
   const pointsRef = useRef<Point[]>([]);
@@ -101,7 +98,6 @@ export const InkingCanvas: React.FC<InkingCanvasProps> = ({
       }
       
       setSelectedStrokeId(null);
-      setIsResizing(false);
     }
   });
 
@@ -126,7 +122,6 @@ export const InkingCanvas: React.FC<InkingCanvasProps> = ({
     pointsRef.current = [point];
     pathRef.current = `M${point.x},${point.y}`;
     setCurrentPath(pathRef.current);
-    setCurrentPoints([point]);
     setIsDrawing(true);
   };
 
@@ -141,7 +136,6 @@ export const InkingCanvas: React.FC<InkingCanvasProps> = ({
     }
     
     setCurrentPath(pathRef.current);
-    setCurrentPoints([...pointsRef.current]);
   };
 
   const handlePanning = (currentPoint: Point) => {
@@ -163,7 +157,6 @@ export const InkingCanvas: React.FC<InkingCanvasProps> = ({
     if (pointsRef.current.length === 0) {
       setIsDrawing(false);
       setCurrentPath('');
-      setCurrentPoints([]);
       return;
     }
 
@@ -219,7 +212,6 @@ export const InkingCanvas: React.FC<InkingCanvasProps> = ({
     // Reset drawing state
     setIsDrawing(false);
     setCurrentPath('');
-    setCurrentPoints([]);
     pathRef.current = '';
     pointsRef.current = [];
   };

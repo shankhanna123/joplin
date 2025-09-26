@@ -1,4 +1,4 @@
-import { Point, BoundingBox, InkStroke } from '../components/InkingTypes';
+import { Point, BoundingBox } from '../components/InkingTypes';
 
 export class StrokeUtils {
   /**

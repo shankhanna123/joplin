@@ -1,6 +1,23 @@
-import MLKit from 'react-native-ml-kit';
+// Note: react-native-ml-kit is an optional dependency
+// Create a separate type declaration file if the module is installed
 import { captureRef } from 'react-native-view-shot';
 import { Platform } from 'react-native';
+
+// Google Vision types for compatibility
+declare global {
+  const GoogleVision: {
+    textRecognition: (imageUri: string) => Promise<Array<{
+      text: string;
+      confidence: number;
+      boundingBox: {
+        left: number;
+        top: number;
+        width: number;
+        height: number;
+      };
+    }>>;
+  };
+}
 
 export interface RecognitionResult {
   text: string;
@@ -27,7 +44,7 @@ export class HandwritingRecognitionService {
     try {
       const results = await GoogleVision.textRecognition(imageUri);
       
-      return results.map(result => ({
+      return results.map((result: any) => ({
         text: result.text,
         confidence: result.confidence,
         boundingBox: {
