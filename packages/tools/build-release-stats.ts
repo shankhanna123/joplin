@@ -6,8 +6,8 @@ import { dirname } from '@joplin/lib/path-utils';
 import markdownUtils from '@joplin/lib/markdownUtils';
 const yargParser = require('yargs-parser');
 import { stripOffFrontMatter } from './website/utils/frontMatter';
-import dayjs = require('dayjs');
-import utc = require('dayjs/plugin/utc');
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
 
 interface GitHubReleaseAsset {

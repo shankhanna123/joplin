@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'fs/promises';
 import { GitHubRelease, gitHubLatestReleases, gitHubLinkify } from './tool-utils';
 import { config, createPost, createTopic, getForumTopPostByExternalId, getTopicByExternalId, trimPostToMaximumLength, updatePost } from './utils/discourse';
 import { compareVersions } from 'compare-versions';
-import dayjs = require('dayjs');
+import dayjs from 'dayjs';
 import { getRootDir } from '@joplin/utils';
 
 interface State {
