@@ -46,11 +46,18 @@ cd /home/runner/work/joplin/joplin/packages/app-mobile
 
 # Install minimal dependencies for mobile app only
 echo "📦 Installing mobile app dependencies..."
-npm install --production --no-optional
+npm install --legacy-peer-deps --ignore-scripts
+
+# Fix Expo Gradle version conflicts to avoid network issues
+echo "🔧 Fixing Expo Gradle version conflicts..."
+find node_modules -path "*expo*" -name "*.gradle*" -type f -exec sed -i 's/8\.5\.0/8.1.4/g' {} \;
 
 # Build APK
 echo "🔨 Building APK..."
 cd android
+
+# Set environment variable to use community autolinking instead of Expo autolinking
+export EXPO_USE_COMMUNITY_AUTOLINKING=1
 
 # Modify build.gradle to use debug signing (redundant but safe)
 echo "🔧 Configuring debug signing..."
