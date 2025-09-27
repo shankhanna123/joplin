@@ -46,7 +46,7 @@ cd /home/runner/work/joplin/joplin/packages/app-mobile
 
 # Install minimal dependencies for mobile app only
 echo "📦 Installing mobile app dependencies..."
-npm install --production --no-optional
+npm install --legacy-peer-deps --ignore-scripts
 
 # Build APK
 echo "🔨 Building APK..."
