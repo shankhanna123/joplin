@@ -1,0 +1,65 @@
+name: Simple Android APK Build
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Install Linux dependencies
+        run: |
+          sudo apt-get update || true
+          sudo apt-get install -y libsecret-1-dev
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Yarn
+        run: |
+          corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Assemble Android Release
+        run: |
+          cd packages/app-mobile/android
+          sed -i -- 's/signingConfig signingConfigs.release/signingConfig signingConfigs.debug/' app/build.gradle
+          ./gradlew assembleRelease --no-daemon
+      
+      - name: Verify APK
+        run: |
+          cd packages/app-mobile/android/app
+          APK_FILE="./build/outputs/apk/release/app-release.apk"
+          if test ! -f "$APK_FILE" ; then
+            echo "APK file not found."
+            exit 1
+          else
+            echo "APK file found at: $APK_FILE"
+            echo "APK size: $(du -h "$APK_FILE" | cut -f1)"
+          fi
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: joplin-simple-apk
+          path: packages/app-mobile/android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 30
+
+      - name: Build Summary
+        run: |
+          echo "✅ Simple APK build completed!"
+          echo "📱 Download 'joplin-simple-apk' from the Artifacts section"

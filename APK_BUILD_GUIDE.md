@@ -11,9 +11,10 @@ The easiest way is to use the GitHub Actions workflow that builds the APK automa
 1. **Trigger the Build:**
    - Go to your repository: https://github.com/shankhanna123/joplin
    - Click the **"Actions"** tab
-   - Click **"Build APK for Personal Use"** workflow
+   - Click **"Build APK for Personal Use"** workflow (recommended)
+   - OR click **"Simple Android APK Build"** workflow (if main build fails)
    - Click **"Run workflow"** button
-   - Select branch: `copilot/fix-6944a03f-d6f7-4f71-8793-2df8ff519f2a` (current branch) or `dev`
+   - Select branch: `copilot/fix-974548e1-dafe-4e58-a228-0496dd229acf` (current branch) or `dev`
    - Click **"Run workflow"**
 
 2. **Download Your APK:**

@@ -42,9 +42,17 @@ If the build fails:
 
 ## Workflows Available
 
-- **`build-apk-for-release.yml`** - Simplified, tablet-focused build ⭐ **RECOMMENDED**
-- **`simple-android-build.yml`** - Alternative simple build workflow
+- **`build-apk-for-release.yml`** - Enhanced, network-resilient build ⭐ **RECOMMENDED**
+- **`simple-android-build.yml`** - Alternative simple build workflow (manual trigger only)
 - **`build-android.yml`** - Full Android build (includes more comprehensive testing)
+
+### If Build Fails
+If you encounter network or build issues:
+
+1. **Try Simple Build**: Use "Simple Android APK Build" workflow (manual trigger)
+2. **Check Logs**: Look for specific error messages in the Actions tab
+3. **Retry**: Network issues are common - just run the workflow again
+4. **Wait and Retry**: Sometimes waiting 10-15 minutes helps with transient issues
 
 ---
 
