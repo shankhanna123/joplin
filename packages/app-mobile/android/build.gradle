@@ -44,7 +44,7 @@ allprojects {
     configurations.all {
         resolutionStrategy.dependencySubstitution {
             // Note: Removed problematic substitution rule for 8.5.0 to 8.0.2
-            // All dependencies should now use the updated 8.2.2 version
+            // All dependencies should now use the updated 8.1.4 version
         }
     }
 }
