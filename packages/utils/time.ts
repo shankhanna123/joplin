@@ -3,16 +3,14 @@
 // added here, and should be based on dayjs (not moment)
 // -----------------------------------------------------------------------------------------------
 
-import type * as dayjsImport from 'dayjs';
-import * as dayJsUtc from 'dayjs/plugin/utc';
-// A require() is needed here for this to work in React Native.
-const dayjs: typeof dayjsImport = require('dayjs');
-
-// Separating this into a type import and a require seems to be necessary to support mobile:
-// - import = require syntax doesn't work when bundling
-// - import * as dayJsRelativeTimeType causes a runtime error.
+// Modernized Day.js import - use default import for main library
+import dayjs from 'dayjs';
+// For React Native compatibility, plugins still need the original require pattern
+// as the original comment indicated it causes runtime errors with standard imports
 import type * as dayJsRelativeTimeType from 'dayjs/plugin/relativeTime';
 const dayJsRelativeTime: typeof dayJsRelativeTimeType = require('dayjs/plugin/relativeTime');
+// Import UTC plugin with default import
+import dayJsUtc from 'dayjs/plugin/utc';
 
 const supportedLocales: Record<string, unknown> = {
 	'ar': require('dayjs/locale/ar'),
@@ -172,7 +170,7 @@ export const formatMsToDurationCompat = (ms: number) => {
 };
 
 
-export const goBackInTime = (startDateMs: number, n: number, period: dayjsImport.ManipulateType) => {
+export const goBackInTime = (startDateMs: number, n: number, period: dayjs.ManipulateType) => {
 	return dayjs(startDateMs).subtract(n, period);
 };
 
