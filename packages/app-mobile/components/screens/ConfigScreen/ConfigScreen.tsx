@@ -488,7 +488,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 			const settingComp = this.settingToComponent(md.key, settings[md.key]);
 			const relatedText = [md.label?.() ?? '', md.description?.(AppType.Mobile) ?? ''];
 			addSettingComponent(
-				settingComp,
+				settingComp as ReactElement,
 				relatedText,
 				md,
 			);
@@ -792,7 +792,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 		let currentSection: ReactNode;
 		if (currentSectionName || this.state.searching) {
 			const settingComps = shared.settingsToComponents2(
-				this, AppType.Mobile, settings, currentSectionName,
+				this as ConfigScreenComponentInterface, AppType.Mobile, settings, currentSectionName,
 
 			// TODO: Remove this cast. Currently necessary because of different versions
 			// of React in lib/ and app-mobile/
