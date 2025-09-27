@@ -270,6 +270,7 @@ packages/app-desktop/gui/NoteEditor/NoteBody/CodeMirror/v6/useEditorCommands.js
 packages/app-desktop/gui/NoteEditor/NoteBody/CodeMirror/v6/utils/localisation.js
 packages/app-desktop/gui/NoteEditor/NoteBody/CodeMirror/v6/utils/useKeymap.js
 packages/app-desktop/gui/NoteEditor/NoteBody/CodeMirror/v6/utils/useRefocusOnVisiblePaneChange.js
+packages/app-desktop/gui/NoteEditor/NoteBody/InkingCanvas/InkingCanvas.js
 packages/app-desktop/gui/NoteEditor/NoteBody/PlainEditor/PlainEditor.js
 packages/app-desktop/gui/NoteEditor/NoteBody/TinyMCE/TinyMCE.js
 packages/app-desktop/gui/NoteEditor/NoteBody/TinyMCE/styles/index.js
@@ -650,6 +651,7 @@ packages/app-mobile/components/CameraView/utils/fitRectIntoBounds.js
 packages/app-mobile/components/CameraView/utils/testing.js
 packages/app-mobile/components/CameraView/utils/useBarcodeScanner.js
 packages/app-mobile/components/Checkbox.js
+packages/app-mobile/components/ColorPicker.js
 packages/app-mobile/components/ComboBox.test.js
 packages/app-mobile/components/ComboBox.js
 packages/app-mobile/components/DialogManager/PromptButton.js
@@ -913,6 +915,19 @@ packages/app-mobile/services/voiceTyping/utils/unzip.js
 packages/app-mobile/services/voiceTyping/whisper.test.js
 packages/app-mobile/services/voiceTyping/whisper.js
 packages/app-mobile/setupQuickActions.js
+packages/app-mobile/src/components/BrushSettings.js
+packages/app-mobile/src/components/CanvasBackground.js
+packages/app-mobile/src/components/InkingCanvas.test.js
+packages/app-mobile/src/components/InkingCanvas.js
+packages/app-mobile/src/components/InkingTypes.js
+packages/app-mobile/src/components/InkingWorkspace.js
+packages/app-mobile/src/components/ModeToolbar.js
+packages/app-mobile/src/components/index.js
+packages/app-mobile/src/components/useInkingSettings.js
+packages/app-mobile/src/examples/InkingExample.js
+packages/app-mobile/src/services/HandwritingRecognition.js
+packages/app-mobile/src/utils/StrokeUtils.test.js
+packages/app-mobile/src/utils/StrokeUtils.js
 packages/app-mobile/tools/buildInjectedJs/BundledFile.js
 packages/app-mobile/tools/buildInjectedJs/constants.js
 packages/app-mobile/tools/buildInjectedJs/copyAssets.js

@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import { View, Text, Button, FlatList, TextStyle, StyleSheet, Role } from 'react-native';
 import Setting from '@joplin/lib/models/Setting';

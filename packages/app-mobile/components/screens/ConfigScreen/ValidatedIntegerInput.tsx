@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { View, Text, TextInput } from 'react-native';
 import Setting, { AppType, SettingItem } from '@joplin/lib/models/Setting';
 import { ConfigScreenStyles } from './configScreenStyles';

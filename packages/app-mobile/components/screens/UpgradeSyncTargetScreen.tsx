@@ -1,4 +1,3 @@
-import * as React from 'react';
 import useSyncTargetUpgrade from '@joplin/lib/services/synchronizer/gui/useSyncTargetUpgrade';
 import { _ } from '@joplin/lib/locale';
 import { View, Text, ScrollView, TextStyle } from 'react-native';

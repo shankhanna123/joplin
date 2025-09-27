@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { _ } from '@joplin/lib/locale';
 import Logger from '@joplin/utils/Logger';
 import { FunctionComponent } from 'react';

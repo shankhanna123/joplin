@@ -1,10 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ColorPicker = void 0;
-const react_1 = __importDefault(require("react"));
+const jsx_runtime_1 = require("react/jsx-runtime");
 const react_native_1 = require("react-native");
 const colors = [
     '#000000', '#FF0000', '#00FF00', '#0000FF',
@@ -13,13 +10,11 @@ const colors = [
     '#C0C0C0', '#808080', '#404040', '#FFFFFF'
 ];
 const ColorPicker = ({ selectedColor, onColorSelect }) => {
-    return (react_1.default.createElement(react_native_1.View, { style: styles.container },
-        react_1.default.createElement(react_native_1.Text, { style: styles.label }, "Brush Color:"),
-        react_1.default.createElement(react_native_1.View, { style: styles.colorGrid }, colors.map((color) => (react_1.default.createElement(react_native_1.TouchableOpacity, { key: color, style: [
-                styles.colorCircle,
-                { backgroundColor: color },
-                selectedColor === color && styles.selectedColor
-            ], onPress: () => onColorSelect(color) }))))));
+    return ((0, jsx_runtime_1.jsxs)(react_native_1.View, { style: styles.container, children: [(0, jsx_runtime_1.jsx)(react_native_1.Text, { style: styles.label, children: "Brush Color:" }), (0, jsx_runtime_1.jsx)(react_native_1.View, { style: styles.colorGrid, children: colors.map((color) => ((0, jsx_runtime_1.jsx)(react_native_1.TouchableOpacity, { style: [
+                        styles.colorCircle,
+                        { backgroundColor: color },
+                        selectedColor === color && styles.selectedColor
+                    ], onPress: () => onColorSelect(color) }, color))) })] }));
 };
 exports.ColorPicker = ColorPicker;
 const styles = react_native_1.StyleSheet.create({

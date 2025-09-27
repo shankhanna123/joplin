@@ -13,6 +13,7 @@ import ScreenHeader from '../../ScreenHeader';
 import { _ } from '@joplin/lib/locale';
 import BaseScreenComponent from '../../base-screen';
 import * as shared from '@joplin/lib/components/shared/config/config-shared';
+import { ConfigScreenComponentInterface } from '@joplin/lib/components/shared/config/config-shared';
 import SyncTargetRegistry from '@joplin/lib/SyncTargetRegistry';
 import biometricAuthenticate from '../../biometrics/biometricAuthenticate';
 import configScreenStyles, { ConfigScreenStyles } from './configScreenStyles';
@@ -116,7 +117,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 		// to ignore TLS errors we need to change the global state of the app, if the check fails we need to restore the original state
 		// this call sets the new value and returns the previous one which we can use later to revert the change
 		const prevIgnoreTlsErrors = await setIgnoreTlsErrors(this.state.settings['net.ignoreTlsErrors']);
-		const result = await shared.checkSyncConfig(this, this.state.settings);
+		const result = await shared.checkSyncConfig(this as ConfigScreenComponentInterface, this.state.settings);
 		if (!result || !result.ok) {
 			await setIgnoreTlsErrors(prevIgnoreTlsErrors);
 		}
@@ -142,7 +143,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 		// changedSettingKeys is cleared in shared.saveSettings so reading it now
 		const shouldSetIgnoreTlsErrors = this.state.changedSettingKeys.includes('net.ignoreTlsErrors');
 
-		const done = await shared.saveSettings(this);
+		const done = await shared.saveSettings(this as ConfigScreenComponentInterface);
 		if (!done) return;
 
 		if (shouldSetIgnoreTlsErrors) {
@@ -361,7 +362,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
-	public sectionToComponent(key: string, section: SettingMetadataSection, settings: any, isSelected: boolean) {
+	public sectionToComponent(key: string, section: SettingMetadataSection, settings: any, isSelected: boolean): ReactNode {
 		const settingComps: ReactElement[] = [];
 		const advancedSettingComps: ReactElement[] = [];
 
@@ -458,7 +459,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 				const syncTargetMd = SyncTargetRegistry.idToMetadata(settings['sync.target']);
 
 				if (syncTargetMd.supportsConfigCheck) {
-					const messages = shared.checkSyncConfigMessages(this);
+					const messages = shared.checkSyncConfigMessages(this as ConfigScreenComponentInterface);
 					const statusComp = !messages.length ? null : (
 						<View style={{ flex: 1, marginTop: 10 }}>
 							<Text style={this.styles().styleSheet.descriptionText}>{messages[0]}</Text>
@@ -487,7 +488,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 			const settingComp = this.settingToComponent(md.key, settings[md.key]);
 			const relatedText = [md.label?.() ?? '', md.description?.(AppType.Mobile) ?? ''];
 			addSettingComponent(
-				settingComp,
+				settingComp as ReactElement,
 				relatedText,
 				md,
 			);
@@ -499,7 +500,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 
 			const updatePluginStates = (newSettingValue: PluginSettings) => {
 				const value = pluginService.serializePluginSettings(newSettingValue);
-				shared.updateSettingValue(this, pluginStatesKey, value);
+				shared.updateSettingValue(this as ConfigScreenComponentInterface, pluginStatesKey, value);
 			};
 
 			if (settings['plugins.pluginSupportEnabled']) {
@@ -530,7 +531,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 				}
 			} else {
 				const enablePluginSupport = () => {
-					shared.updateSettingValue(this, 'plugins.pluginSupportEnabled', true);
+					shared.updateSettingValue(this as ConfigScreenComponentInterface, 'plugins.pluginSupportEnabled', true);
 				};
 				addSettingComponent(
 					<EnablePluginSupportPage
@@ -712,16 +713,16 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 		if (key === 'security.biometricsEnabled' && !!value) {
 			try {
 				await biometricAuthenticate();
-				shared.updateSettingValue(this, key, value, async () => await this.saveButton_press());
+				shared.updateSettingValue(this as ConfigScreenComponentInterface, key, value, async () => await this.saveButton_press());
 			} catch (error) {
-				shared.updateSettingValue(this, key, false);
+				shared.updateSettingValue(this as ConfigScreenComponentInterface, key, false);
 				Alert.alert(error.message);
 			}
 			return true;
 		}
 
 		if (key === 'security.biometricsEnabled' && !value) {
-			shared.updateSettingValue(this, key, value, async () => await this.saveButton_press());
+			shared.updateSettingValue(this as ConfigScreenComponentInterface, key, value, async () => await this.saveButton_press());
 			return true;
 		}
 
@@ -729,11 +730,11 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
-	public settingToComponent(key: string, value: any) {
+	public settingToComponent(key: string, value: any): ReactNode {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
 		const updateSettingValue = async (key: string, value: any) => {
 			const handled = await this.handleSetting(key, value);
-			if (!handled) shared.updateSettingValue(this, key, value);
+			if (!handled) shared.updateSettingValue(this as ConfigScreenComponentInterface, key, value);
 		};
 
 		return (
@@ -752,7 +753,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 	private renderFeatureFlags(settings: any, featureFlagKeys: string[]): any[] {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
 		const updateSettingValue = (key: string, value: any) => {
-			return shared.updateSettingValue(this, key, value);
+			return shared.updateSettingValue(this as ConfigScreenComponentInterface, key, value);
 		};
 
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
@@ -791,7 +792,7 @@ class ConfigScreenComponent extends BaseScreenComponent<ConfigScreenProps, Confi
 		let currentSection: ReactNode;
 		if (currentSectionName || this.state.searching) {
 			const settingComps = shared.settingsToComponents2(
-				this, AppType.Mobile, settings, currentSectionName,
+				this as ConfigScreenComponentInterface, AppType.Mobile, settings, currentSectionName,
 
 			// TODO: Remove this cast. Currently necessary because of different versions
 			// of React in lib/ and app-mobile/

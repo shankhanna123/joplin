@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Text } from 'react-native';
 
 import { describe, it, expect, jest } from '@jest/globals';

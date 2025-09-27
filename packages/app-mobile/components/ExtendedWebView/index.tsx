@@ -1,6 +1,5 @@
 // Wraps react-native-webview. Allows loading HTML directly.
 
-import * as React from 'react';
 
 import {
 	forwardRef, Ref, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState,

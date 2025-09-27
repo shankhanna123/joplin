@@ -26,7 +26,7 @@ export const defaultScreenState: ConfigScreenState = {
 	showAdvancedSettings: false,
 };
 
-interface ConfigScreenComponent {
+export interface ConfigScreenComponentInterface {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
 	settingToComponent(settingId: string, setting: any): ReactNode;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
@@ -63,14 +63,14 @@ export const init = (reg: Registry) => {
 	};
 };
 
-export const advancedSettingsButton_click = (comp: ConfigScreenComponent) => {
+export const advancedSettingsButton_click = (comp: ConfigScreenComponentInterface) => {
 	comp.setState((state: ConfigScreenState) => {
 		return { showAdvancedSettings: !state.showAdvancedSettings };
 	});
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
-export const checkSyncConfig = async (comp: ConfigScreenComponent, settings: any) => {
+export const checkSyncConfig = async (comp: ConfigScreenComponentInterface, settings: any) => {
 	const syncTargetId = settings['sync.target'];
 	const SyncTargetClass = SyncTargetRegistry.classById(syncTargetId);
 
@@ -89,7 +89,7 @@ export const checkSyncConfig = async (comp: ConfigScreenComponent, settings: any
 	return result;
 };
 
-export const checkSyncConfigMessages = (comp: ConfigScreenComponent) => {
+export const checkSyncConfigMessages = (comp: ConfigScreenComponentInterface) => {
 	const result = comp.state.checkSyncConfigResult;
 	const output = [];
 
@@ -106,7 +106,7 @@ export const checkSyncConfigMessages = (comp: ConfigScreenComponent) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
-export const updateSettingValue = (comp: ConfigScreenComponent, key: string, value: any, callback?: ()=> void) => {
+export const updateSettingValue = (comp: ConfigScreenComponentInterface, key: string, value: any, callback?: ()=> void) => {
 	if (!callback) callback = () => {};
 
 	comp.setState((state: ConfigScreenState) => {
@@ -141,7 +141,7 @@ export const updateSettingValue = (comp: ConfigScreenComponent, key: string, val
 };
 
 let scheduleSaveSettingsIID: ReturnType<typeof setTimeout>|null = null;
-export const scheduleSaveSettings = (comp: ConfigScreenComponent) => {
+export const scheduleSaveSettings = (comp: ConfigScreenComponentInterface) => {
 	if (scheduleSaveSettingsIID) clearTimeout(scheduleSaveSettingsIID);
 
 	scheduleSaveSettingsIID = setTimeout(async () => {
@@ -150,7 +150,7 @@ export const scheduleSaveSettings = (comp: ConfigScreenComponent) => {
 	}, 100);
 };
 
-export const saveSettings = async (comp: ConfigScreenComponent) => {
+export const saveSettings = async (comp: ConfigScreenComponentInterface) => {
 	const savedSettingKeys = comp.state.changedSettingKeys.slice();
 
 	const validationMessage = await settingValidations(savedSettingKeys, comp.state.settings);
@@ -173,7 +173,7 @@ export const saveSettings = async (comp: ConfigScreenComponent) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
-export const settingsToComponents = (comp: ConfigScreenComponent, device: AppType, settings: any) => {
+export const settingsToComponents = (comp: ConfigScreenComponentInterface, device: AppType, settings: any) => {
 	const keys = Setting.keys(true, device);
 	const settingComps = [];
 
@@ -287,7 +287,7 @@ export const settingsSections = createSelector(
 
 export const settingsToComponents2 = (
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
-	comp: ConfigScreenComponent, device: AppType, settings: any, selectedSectionName = '',
+	comp: ConfigScreenComponentInterface, device: AppType, settings: any, selectedSectionName = '',
 ) => {
 	const sectionComps: ReactNode[] = [];
 	const sections = settingsSections({ device, settings });

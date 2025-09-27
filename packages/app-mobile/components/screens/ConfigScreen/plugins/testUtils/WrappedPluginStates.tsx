@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { PluginSettings } from '@joplin/lib/services/plugins/PluginService';
 import configScreenStyles from '../../configScreenStyles';
 import Setting from '@joplin/lib/models/Setting';

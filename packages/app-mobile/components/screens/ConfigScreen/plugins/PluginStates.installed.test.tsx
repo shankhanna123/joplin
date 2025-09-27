@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createTempDir, mockMobilePlatform, setupDatabaseAndSynchronizer, switchClient } from '@joplin/lib/testing/test-utils';
 
 import { act, fireEvent, render, screen, userEvent, waitFor } from '../../../../utils/testing/testingLibrary';

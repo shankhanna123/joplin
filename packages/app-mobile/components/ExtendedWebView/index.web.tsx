@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import {
 	forwardRef, Ref, useCallback, useEffect, useImperativeHandle, useRef, useState,

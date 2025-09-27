@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import { AppType, SettingMetadataSection, SettingSectionSource } from '@joplin/lib/models/Setting';
 import { FunctionComponent, useEffect, useMemo, useState } from 'react';

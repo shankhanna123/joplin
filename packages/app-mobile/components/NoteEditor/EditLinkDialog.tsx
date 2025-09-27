@@ -1,6 +1,5 @@
 // Dialog allowing the user to update/create links
 
-import * as React from 'react';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 

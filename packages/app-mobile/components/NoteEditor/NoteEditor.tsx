@@ -4,7 +4,6 @@ import EditLinkDialog from './EditLinkDialog';
 import { defaultSearchState, SearchPanel } from './SearchPanel';
 import { WebViewControl } from '../ExtendedWebView/types';
 
-import * as React from 'react';
 import { Ref, RefObject, useEffect, useImperativeHandle } from 'react';
 import { useMemo, useState, useCallback, useRef } from 'react';
 import { LayoutChangeEvent, Platform, View, ViewStyle } from 'react-native';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { FunctionComponent, ReactElement, useCallback, useContext } from 'react';
 import { _ } from '@joplin/lib/locale';
 import Folder, { FolderEntityWithChildren } from '@joplin/lib/models/Folder';
