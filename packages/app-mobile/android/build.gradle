@@ -21,7 +21,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.0.2")
+        classpath("com.android.tools.build:gradle:8.1.4")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
     }
@@ -43,7 +43,8 @@ allprojects {
     
     configurations.all {
         resolutionStrategy.dependencySubstitution {
-            substitute module('com.android.tools.build:gradle:8.5.0') using module('com.android.tools.build:gradle:8.0.2')
+            // Note: Removed problematic substitution rule for 8.5.0 to 8.0.2
+            // All dependencies should now use the updated 8.1.4 version
         }
     }
 }
