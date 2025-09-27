@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { TouchableOpacity, TouchableWithoutFeedback, Dimensions, Text, Modal, View, LayoutRectangle, ViewStyle, TextStyle, FlatList, Platform } from 'react-native';
 import { Component, ReactElement } from 'react';
+import { TouchableOpacity, TouchableWithoutFeedback, Dimensions, Text, Modal, View, LayoutRectangle, ViewStyle, TextStyle, FlatList, Platform } from 'react-native';
 import { _ } from '@joplin/lib/locale';
 import { EdgeInsets, SafeAreaInsetsContext } from 'react-native-safe-area-context';
 

@@ -2,7 +2,6 @@
 // A button with a long-press action. Long-pressing the button displays a tooltip
 //
 
-import * as React from 'react';
 import { themeStyle } from '@joplin/lib/theme';
 import { Theme } from '@joplin/lib/themes/type';
 import { useState, useMemo, useCallback, useRef, Ref } from 'react';

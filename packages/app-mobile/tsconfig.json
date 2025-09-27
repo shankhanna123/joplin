@@ -11,7 +11,12 @@
 		"tools/*.ts",
 	],
 	"compilerOptions": {
-		"types": ["jest", "node"],
-		"moduleSuffixes": [".ios", ".android", ".native", ""]
+		"types": ["jest", "@types/node"],
+		"moduleSuffixes": [".ios", ".android", ".native", ""],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true
 	}
 }
