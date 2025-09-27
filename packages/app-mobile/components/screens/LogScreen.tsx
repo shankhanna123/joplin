@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import { FlatList, View, Text, Button, StyleSheet, Platform } from 'react-native';
 import { connect } from 'react-redux';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { FunctionComponent, ReactNode } from 'react';
 
 import { View, Text, Switch } from 'react-native';

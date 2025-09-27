@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { PluginHtmlContents, ViewInfo } from '@joplin/lib/services/plugins/reducer';
 import ExtendedWebView from '../../ExtendedWebView';

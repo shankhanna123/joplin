@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import { describe, it, expect, beforeEach } from '@jest/globals';
 import { act, fireEvent, render, screen, waitFor } from '../../utils/testing/testingLibrary';

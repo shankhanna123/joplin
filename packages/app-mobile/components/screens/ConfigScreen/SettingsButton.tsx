@@ -1,5 +1,4 @@
 
-import * as React from 'react';
 import { FunctionComponent, ReactNode } from 'react';
 import { View, Text, Button } from 'react-native';
 import { ConfigScreenStyles } from './configScreenStyles';

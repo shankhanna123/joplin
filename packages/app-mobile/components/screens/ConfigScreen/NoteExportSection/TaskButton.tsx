@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Text } from 'react-native';
 import { _ } from '@joplin/lib/locale';
 import { ProgressBar } from 'react-native-paper';

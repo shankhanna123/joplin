@@ -26,7 +26,7 @@ export const defaultScreenState: ConfigScreenState = {
 	showAdvancedSettings: false,
 };
 
-interface ConfigScreenComponentInterface {
+export interface ConfigScreenComponentInterface {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied
 	settingToComponent(settingId: string, setting: any): ReactNode;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Old code before rule was applied

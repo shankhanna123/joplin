@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import { View, Button, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { AppState } from '../../utils/types';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import { _ } from '@joplin/lib/locale';
 import { act, fireEvent, render, waitFor } from '../../../../utils/testing/testingLibrary';

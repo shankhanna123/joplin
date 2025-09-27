@@ -1,4 +1,3 @@
-import * as React from 'react';
 import TextButton, { ButtonType, TextButtonProps } from './TextButton';
 
 type Props = Omit<TextButtonProps, 'type'>;

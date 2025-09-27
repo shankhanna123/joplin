@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { ForwardedRef, forwardRef, useCallback, useImperativeHandle } from 'react';
 import { CameraRef, Props } from './types';
 import { PrimaryButton } from '../../buttons';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import useOnMessage, { HandleMessageCallback, OnMarkForDownloadCallback } from './hooks/useOnMessage';
 import { useRef, useCallback } from 'react';

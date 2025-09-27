@@ -1,5 +1,4 @@
 import { _ } from '@joplin/lib/locale';
-import * as React from 'react';
 import { useCallback } from 'react';
 import { View, Text, Linking } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { _ } from '@joplin/lib/locale';
 import Logger from '@joplin/utils/Logger';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
