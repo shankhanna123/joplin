@@ -19,7 +19,7 @@ import { PublicPrivateKeyPair } from '@joplin/lib/services/e2ee/ppk/ppk';
 import paymentFailedUploadDisabledTemplate from '../views/emails/paymentFailedUploadDisabledTemplate';
 import oversizedAccount1 from '../views/emails/oversizedAccount1';
 import oversizedAccount2 from '../views/emails/oversizedAccount2';
-import dayjs = require('dayjs');
+import dayjs from 'dayjs';
 import { failedPaymentFinalAccount } from './SubscriptionModel';
 import { Day } from '../utils/time';
 import paymentFailedAccountDisabledTemplate from '../views/emails/paymentFailedAccountDisabledTemplate';
