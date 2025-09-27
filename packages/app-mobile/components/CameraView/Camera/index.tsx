@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { CameraDirection } from '@joplin/lib/models/settings/builtInMetadata';
 import { BarcodeSettings, CameraMountError, CameraRatio, CameraView, useCameraPermissions } from 'expo-camera';
 import { ForwardedRef, forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';

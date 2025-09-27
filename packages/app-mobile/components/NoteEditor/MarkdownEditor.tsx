@@ -124,7 +124,8 @@ const MarkdownEditor: React.FC<EditorProps> = props => {
 		pluginStates: props.plugins,
 	});
 
-	props.editorRef.current = editorWebViewSetup.api.mainEditor;
+	// Assign to ref (cast to mutable to satisfy TypeScript)
+	(props.editorRef as React.MutableRefObject<typeof editorWebViewSetup.api.mainEditor>).current = editorWebViewSetup.api.mainEditor;
 
 	const injectedJavaScript = `
 		window.onerror = (message, source, lineno) => {

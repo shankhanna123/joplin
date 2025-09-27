@@ -93,7 +93,8 @@ const RichTextEditor: React.FC<EditorProps> = props => {
 		onAttachFile: props.onAttach,
 	});
 
-	props.editorRef.current = editorWebViewSetup.api;
+	// Assign to ref (cast to mutable to satisfy TypeScript)
+	(props.editorRef as React.MutableRefObject<typeof editorWebViewSetup.api>).current = editorWebViewSetup.api;
 
 	const injectedJavaScript = `
 		window.onerror = (message, source, lineno) => {
