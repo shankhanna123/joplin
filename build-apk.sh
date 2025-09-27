@@ -52,13 +52,26 @@ npm install --production --no-optional
 echo "🔨 Building APK..."
 cd android
 
-# Modify build.gradle to use debug signing
+# Modify build.gradle to use debug signing (redundant but safe)
 echo "🔧 Configuring debug signing..."
 sed -i 's/signingConfig signingConfigs.release/signingConfig signingConfigs.debug/' app/build.gradle
 
-# Build the APK
+# Build the APK with retry logic
 echo "🏗️ Building release APK with debug signing..."
-./gradlew assembleRelease --no-daemon --stacktrace
+for i in {1..3}; do
+    if ./gradlew assembleRelease --no-daemon --stacktrace --max-workers=2; then
+        echo "✅ Build successful on attempt $i"
+        break
+    else
+        echo "❌ Build failed on attempt $i"
+        if [ $i -eq 3 ]; then
+            echo "💥 Build failed after 3 attempts"
+            exit 1
+        fi
+        echo "⏳ Waiting 30 seconds before retry..."
+        sleep 30
+    fi
+done
 
 # Check if APK was created
 APK_FILE="./app/build/outputs/apk/release/app-release.apk"
