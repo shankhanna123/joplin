@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useRef, useCallback, useId } from 'react';
 import { _ } from '@joplin/lib/locale';
 import DialogButtonRow from '../DialogButtonRow';

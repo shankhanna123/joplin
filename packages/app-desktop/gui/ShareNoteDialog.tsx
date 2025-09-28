@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { _, _n } from '@joplin/lib/locale';
 import Note from '@joplin/lib/models/Note';

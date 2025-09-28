@@ -1,5 +1,4 @@
 import PostMessageService, { MessageResponse, ResponderComponentType } from '@joplin/lib/services/PostMessageService';
-import * as React from 'react';
 import { reg } from '@joplin/lib/registry';
 import bridge from '../services/bridge';
 import { focus } from '@joplin/lib/utils/focusHandler';

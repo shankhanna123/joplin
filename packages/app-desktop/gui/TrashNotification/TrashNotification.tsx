@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useContext, useEffect, useRef } from 'react';
 import { StateLastDeletion } from '@joplin/lib/reducer';
 import { _, _n } from '@joplin/lib/locale';

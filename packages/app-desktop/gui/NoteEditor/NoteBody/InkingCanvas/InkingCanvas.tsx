@@ -71,11 +71,10 @@ const SvgCanvas = styled.svg`
   pointer-events: none;
 `;
 
-const BackgroundPattern = styled.pattern``;
+
 
 export const InkingCanvas: React.FC<InkingCanvasProps> = ({
   onStrokeAdded,
-  onStrokeUpdated,
   onStrokeDeleted,
   strokes,
   brushColor,

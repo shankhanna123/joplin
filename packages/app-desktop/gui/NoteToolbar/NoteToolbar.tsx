@@ -1,4 +1,3 @@
-import * as React from 'react';
 import CommandService from '@joplin/lib/services/CommandService';
 import ToolbarBase from '../ToolbarBase';
 import { utils as pluginUtils } from '@joplin/lib/services/plugins/reducer';

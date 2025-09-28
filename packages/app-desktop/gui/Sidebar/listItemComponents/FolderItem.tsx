@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { FolderIcon, FolderIconType } from '@joplin/lib/services/database/types';
 import ExpandLink from './ExpandLink';
 import { StyledListItemAnchor, StyledShareIcon, StyledSpanFix } from '../styles';

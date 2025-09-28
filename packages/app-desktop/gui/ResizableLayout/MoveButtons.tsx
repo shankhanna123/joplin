@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useCallback, useId } from 'react';
 import Button, { ButtonLevel } from '../Button/Button';
 import { MoveDirection } from './utils/movements';

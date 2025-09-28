@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useMemo, useCallback } from 'react';
 
 export type DropdownOptions = Record<string, string>;

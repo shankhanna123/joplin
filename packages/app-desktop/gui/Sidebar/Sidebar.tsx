@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { StyledSyncReportText, StyledSyncReport, StyledSynchronizeButton, StyledRoot } from './styles';
 import { ButtonLevel } from '../Button/Button';
 import CommandService from '@joplin/lib/services/CommandService';
