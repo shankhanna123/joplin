@@ -46,8 +46,8 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Install dependencies
-        run: yarn install --immutable --mode=skip-build
-
+        run: yarn install
+      
       - name: Pre-warm Gradle
         run: |
           cd packages/app-mobile/android
