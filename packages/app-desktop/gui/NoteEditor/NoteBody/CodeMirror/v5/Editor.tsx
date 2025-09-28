@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useEffect, useImperativeHandle, useState, useRef, useCallback, forwardRef } from 'react';
 import { PluginStates } from '@joplin/lib/services/plugins/reducer';
 

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useEffect, useRef, forwardRef, useCallback, useImperativeHandle, ForwardedRef, useContext } from 'react';
 
 // eslint-disable-next-line no-unused-vars

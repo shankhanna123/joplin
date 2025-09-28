@@ -1,5 +1,5 @@
 import { rootDir } from './tool-utils';
-import * as moment from 'moment';
+import moment = require('moment');
 import { execCommand } from '@joplin/utils';
 
 interface Argv {
@@ -95,7 +95,7 @@ async function main() {
 
 	const isPreRelease = getIsPreRelease(tagName);
 	const imageVersion = getVersionFromTag(tagName, isPreRelease);
-	const buildDate = moment(new Date().getTime()).format('YYYY-MM-DDTHH:mm:ssZ');
+	const buildDate = moment().format('YYYY-MM-DDTHH:mm:ssZ');
 	let revision = '';
 	try {
 		revision = await execCommand('git rev-parse --short HEAD', { showStdout: false });

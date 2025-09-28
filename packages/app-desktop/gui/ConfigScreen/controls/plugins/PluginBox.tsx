@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useCallback, useId, useMemo } from 'react';
 import { _ } from '@joplin/lib/locale';
 import styled from 'styled-components';

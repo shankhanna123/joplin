@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useCallback } from 'react';
 import StyledInput from '../style/StyledInput';
 import { _ } from '@joplin/lib/locale';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useRef, useCallback } from 'react';
 import { ButtonSpec, DialogResult } from '@joplin/lib/services/plugins/api/types';
 import PluginService from '@joplin/lib/services/plugins/PluginService';

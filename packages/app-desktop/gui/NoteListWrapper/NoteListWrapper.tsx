@@ -1,5 +1,4 @@
 import { themeStyle } from '@joplin/lib/theme';
-import * as React from 'react';
 import { useMemo, useState, useEffect, useCallback, useContext } from 'react';
 import NoteList2 from '../NoteList/NoteList2';
 import NoteListControls from '../NoteListControls/NoteListControls';

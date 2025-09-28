@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useCallback, useState, useEffect, useMemo } from 'react';
 import { _ } from '@joplin/lib/locale';
 import useAsyncEffect, { AsyncEffectEvent } from '@joplin/lib/hooks/useAsyncEffect';

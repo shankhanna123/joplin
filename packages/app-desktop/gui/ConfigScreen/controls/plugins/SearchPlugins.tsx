@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useCallback, useRef, useEffect } from 'react';
 import SearchInput, { OnChangeEvent } from '../../../lib/SearchInput/SearchInput';
 import styled from 'styled-components';
