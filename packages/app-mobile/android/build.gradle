@@ -44,7 +44,7 @@ allprojects {
     configurations.all {
         resolutionStrategy.dependencySubstitution {
             // Force Expo plugins to use the same Gradle version as main build
-            substitute module('com.android.tools.build:gradle:8.5.0') using module('com.android.tools.build:gradle:8.1.4')
+            
         }
     }
 }
