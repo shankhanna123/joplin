@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import SearchInput from '../lib/SearchInput/SearchInput';
 import Setting from '@joplin/lib/models/Setting';

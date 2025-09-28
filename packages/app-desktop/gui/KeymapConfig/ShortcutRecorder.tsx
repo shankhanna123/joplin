@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useEffect, KeyboardEvent } from 'react';
 
 import KeymapService from '@joplin/lib/services/KeymapService';

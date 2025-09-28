@@ -1,7 +1,7 @@
 import { cookieGet } from './cookies';
 import { ErrorForbidden } from './errors';
 import { AppContext } from './types';
-import * as formidable from 'formidable';
+import formidable from 'formidable';
 import { Fields, Files } from 'formidable';
 import { IncomingMessage } from 'http';
 
@@ -83,7 +83,7 @@ export async function formParse(request: IncomingMessage): Promise<FormParseResu
 		});
 
 		try {
-			form.on('error', (error) => {
+			form.on('error', (error: any) => {
 				if (promiseCompleted) return;
 				promiseCompleted = true;
 				const wrapped = new Error(`Could not parse form (1): ${error.message}`);

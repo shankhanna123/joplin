@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { FolderIcon, FolderIconType } from '@joplin/lib/services/database/types';
 import EmojiBox from './EmojiBox';
 

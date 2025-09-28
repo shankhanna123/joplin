@@ -1,5 +1,4 @@
 import { PluginStates } from '@joplin/lib/services/plugins/reducer';
-import * as React from 'react';
 import NoteListUtils from './utils/NoteListUtils';
 import { Dispatch } from 'redux';
 import { ThemeStyle } from '@joplin/lib/theme';

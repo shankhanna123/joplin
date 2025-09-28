@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useCallback, useRef, useEffect } from 'react';
 import Resource from '@joplin/lib/models/Resource';
 import bridge from '../services/bridge';
