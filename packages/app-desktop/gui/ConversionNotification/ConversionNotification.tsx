@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useContext, useEffect } from 'react';
 import { _ } from '@joplin/lib/locale';
 import { Dispatch } from 'redux';

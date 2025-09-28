@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Button from '../../gui/Button/Button';
 import { _ } from '@joplin/lib/locale';
 import { ButtonSpec } from '@joplin/lib/services/plugins/api/types';

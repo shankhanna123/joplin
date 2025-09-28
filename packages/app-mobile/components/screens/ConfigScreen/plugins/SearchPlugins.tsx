@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import useAsyncEffect from '@joplin/lib/hooks/useAsyncEffect';
 import { _ } from '@joplin/lib/locale';
 import { PluginManifest } from '@joplin/lib/services/plugins/utils/types';
@@ -48,7 +46,7 @@ const styles = StyleSheet.create({
 });
 
 
-const PluginSearch: React.FC<Props> = props => {
+const PluginSearch = (props: Props) => {
 	const { searchQuery, setSearchQuery } = props;
 	const [searchResultManifests, setSearchResultManifests] = useState<PluginManifest[]>([]);
 

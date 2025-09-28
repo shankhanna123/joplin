@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useEffect, useMemo, useReducer, useState } from 'react';
 import ButtonBar from './ConfigScreen/ButtonBar';
 import { _ } from '@joplin/lib/locale';

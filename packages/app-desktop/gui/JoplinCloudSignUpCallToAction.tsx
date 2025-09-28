@@ -1,5 +1,4 @@
 import { _ } from '@joplin/lib/locale';
-import * as React from 'react';
 import bridge from '../services/bridge';
 
 const JoplinCloudSignUpCallToAction = () => {

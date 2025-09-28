@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useEffect, useCallback, useRef, forwardRef, useImperativeHandle, useMemo, Ref } from 'react';
 import { ScrollOptions, ScrollOptionTypes, EditorCommand, NoteBodyEditorProps, ResourceInfos, HtmlToMarkdownHandler, ScrollToTextValue, NoteBodyEditorRef } from '../../utils/types';
 import { resourcesStatus, commandAttachFileToBody, getResourcesFromPasteEvent, processPastedHtml } from '../../utils/resourceHandling';

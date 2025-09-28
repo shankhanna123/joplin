@@ -1,4 +1,3 @@
-import * as React from 'react';
 import EncryptionService from '@joplin/lib/services/e2ee/EncryptionService';
 import { themeStyle } from '@joplin/lib/theme';
 import { _ } from '@joplin/lib/locale';

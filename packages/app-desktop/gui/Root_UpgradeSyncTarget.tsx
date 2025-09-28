@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useEffect } from 'react';
 import useSyncTargetUpgrade, { SyncTargetUpgradeResult } from '@joplin/lib/services/synchronizer/gui/useSyncTargetUpgrade';
 

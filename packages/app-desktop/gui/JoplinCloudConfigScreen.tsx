@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { connect } from 'react-redux';
 import { AppState } from '../app.reducer';
 import { _ } from '@joplin/lib/locale';

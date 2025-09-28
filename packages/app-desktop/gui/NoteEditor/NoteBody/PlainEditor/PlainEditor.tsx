@@ -1,7 +1,6 @@
 
 // Used in safe mode
 
-import * as React from 'react';
 import { ForwardedRef } from 'react';
 import { useEffect, useCallback, useRef, forwardRef, useImperativeHandle } from 'react';
 import { NoteBodyEditorProps, NoteBodyEditorRef } from '../../utils/types';
